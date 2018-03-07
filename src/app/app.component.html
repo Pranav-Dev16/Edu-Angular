@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<!-- Navigation code-->
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        
+        <img src="assets/image/c.png" width="200px" height="50px">
+      </div>
+      <!-- <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#">
+              <span class="glyphicon glyphicon-user"></span>  Hello!</a>
+          </li>
+        </ul>
+      </div> -->
+      <div class="col-lg-10" id="serch">
+        <div class="col-lg-10">
+          <input [(ngModel)]="search" class="form-control input-lg" placeholder="Search for Movies...">
+          <!-- <span class="input-group-btn">
+              <button class="btn btn-primary" type="button"  ><i class="glyphicon glyphicon-search"></i></button>
+            </span> -->
+      
+        </div>
+      
+      </div>
+    </div>
+  </nav>
+
+  <div >
+    <img src="assets/image/slide1.jpg" alt="Image" width="1520px" height="350px">
+   
+    </div>
+    <br>
+  <div class="col-lg-3" id="serch">
+  <!-- <div class="input-group">
+      <input [(ngModel)]= "search" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button"  ><i class="glyphicon glyphicon-search"></i></button>
+      </span> 
+      
+    </div>-->
+     <p >Filter Results:- {{search}}</p> 
+  </div>
+    
+<!--Movie data retrival -->
+  <div class="container text-center" *ngIf ='movies && movies.length' >
+    <h3>Now Showing</h3>
+    <br>
+    <div class="row" >
+      <div class="col-sm-3" *ngFor = 'let movie of movies | movieFilter:search'>
+        <img [src]='movie.imageUrl' class="img-responsive"  alt="Image">
+        <p align="left">
+            {{movie.name}} <br>
+            {{movie.language}}<br>
+            {{movie.type}}<br>
+             <app-star></app-star>
+        
+        
+        </p>
+        
+      </div>
+      
+    </div>
+  </div>
+
+  
+
+  <br>
+
+  <footer class="container-fluid text-center">
+    <h5>Follow Us:- </h5>
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-google"></a>
+  </footer>
+
+</body>
+
+</html>
